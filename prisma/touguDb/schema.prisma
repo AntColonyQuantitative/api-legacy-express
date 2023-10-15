@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PortalUsers {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  ref          String    
+  realName     String?
+  displayName  String?
+  password     String
+  mobile       String?   @default("")
+  wechat       String?   @default("")
+  qq           String?   @default("")
+  lastLoginTime DateTime?
+  vipTimeoutAt DateTime?
+  lastLoginIP  String?
+  isActivated  Boolean   @default(false)
+  isDeleted    Boolean   @default(false)
+}
+
+
