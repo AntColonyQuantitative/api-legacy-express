@@ -57,6 +57,7 @@ echo "JWT_SECRET=hello_tougu" >> .env
 
 # Migrate local database
 cd prisma/touguDb
+npx prisma generate
 npx prisma migrate reset
 ```
 
